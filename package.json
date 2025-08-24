@@ -1,0 +1,17 @@
+{
+  "name": "falconx",
+  "private": true,
+  "version": "0.0.1",
+  "description": "AI-powered desktop automation platform",
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test"
+  },
+  "keywords": [
+    "automation",
+    "ai",
+    "desktop"
+  ],
+  "author": "FalconX Labs",
+  "license": "MIT"
+}

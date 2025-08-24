@@ -1,0 +1,58 @@
+name: FalconX CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Set up Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Python dependencies for Vision service
+        run: |
+          cd packages/vision
+          pip install -r requirements.txt
+          cd ../..
+
+      - name: Build all packages
+        run: pnpm build
+
+      - name: Type-check all packages
+        run: pnpm -r tsc --noEmit
+
+      - name: Check Rust formatting
+        run: |
+          cd packages/agent
+          cargo fmt -- --check
+          cd ../../client/src-tauri
+          cargo fmt -- --check
+          cd ../../..

@@ -1,0 +1,19 @@
+[package]
+name = "falconx-agent"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+# Add platform specific dependencies here
+[target.'cfg(target_os = "macos")'.dependencies]
+core-graphics = "0.22"
+# Add other macos dependencies
+
+[target.'cfg(target_os = "windows")'.dependencies]
+winapi = { version = "0.3", features = ["winuser"] }
+# Add other windows dependencies
