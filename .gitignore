@@ -1,0 +1,36 @@
+# Dependencies
+/node_modules
+/packages/vision/venv
+
+# Build artifacts
+/dist
+/packages/agent/target
+/packages/client/src-tauri/target
+/packages/agent/*.node
+/packages/agent/index.js
+/packages/agent/index.d.ts
+/packages/agent/agent.js
+/packages/agent/agent.d.ts
+/packages/planner/dist
+/packages/recorder/dist
+/packages/sdk/dist
+/packages/server/dist
+
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDEs
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# macOS
+.DS_Store

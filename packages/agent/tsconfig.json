@@ -1,0 +1,8 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": ".", // napi-rs generates files in the root of the package
+    "declaration": true
+  },
+  "include": ["index.ts"]
+}

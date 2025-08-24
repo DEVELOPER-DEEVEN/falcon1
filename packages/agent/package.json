@@ -1,0 +1,19 @@
+{
+  "name": "@falconx/agent",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.js",
+  "types": "index.d.ts",
+  "napi": {
+    "name": "agent"
+  },
+  "scripts": {
+    "build": "tsc && napi build --release",
+    "build:debug": "tsc && napi build",
+    "test": "node test.js"
+  },
+  "devDependencies": {
+    "napi-rs": "^0.3.10",
+    "typescript": "^5.0.2"
+  }
+}
